@@ -1,1 +1,23 @@
-<p>register works!</p>
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div class="bg-white p-8 rounded-lg shadow-md w-96">
+    <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Criar Conta</h2>
+    <div *ngIf="message" class="bg-red-100 text-red-700 p-2 rounded mb-4 text-center text-sm">{{ message }}</div>
+    
+    <form (ngSubmit)="onRegister()">
+      <div class="mb-4">
+        <label class="block text-sm font-semibold mb-1">Nome</label>
+        <input type="text" [(ngModel)]="userData.name" name="name" class="w-full p-2 border rounded" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-semibold mb-1">E-mail</label>
+        <input type="email" [(ngModel)]="userData.email" name="email" class="w-full p-2 border rounded" required>
+      </div>
+      <div class="mb-6">
+        <label class="block text-sm font-semibold mb-1">Senha</label>
+        <input type="password" [(ngModel)]="userData.password" name="password" class="w-full p-2 border rounded" required>
+      </div>
+      <button type="submit" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 transition">Cadastrar</button>
+    </form>
+    <p class="mt-4 text-sm text-center">Já tem conta? <a routerLink="/login" class="text-blue-500 hover:underline">Entre aqui</a></p>
+  </div>
+</div>
